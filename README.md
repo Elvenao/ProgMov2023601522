@@ -1,2 +1,2 @@
-# ProgMovil-2023601522
+# ProgMov2023601522
 Repositorio para Programacion Movil
