@@ -94,7 +94,7 @@ fun VistaPrincipal(navController: NavController) {
     @Composable
     fun VistaNombres(dbHelper: DBHelper) {
         val nombres = remember {
-            mutableStateOf(dbHelper.obtenerNombres()) // Lista de arreglos
+            mutableStateOf(dbHelper.obtenerNombres()) 
         }
         val img = ImgUtilities()
 
@@ -277,7 +277,7 @@ fun VistaPrincipal(navController: NavController) {
                     fontSize = 25.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth() // asegura que el texto ocupe todo el ancho del botón
+                    modifier = Modifier.fillMaxWidth() 
                 )
             }
 
@@ -289,8 +289,8 @@ fun VistaPrincipal(navController: NavController) {
             modifier = Modifier.fillMaxWidth()
         )
         Row(
-            modifier = Modifier.fillMaxWidth(), // hace que la fila ocupe todo el ancho
-            horizontalArrangement = Arrangement.Center // centra los elementos horizontalmente
+            modifier = Modifier.fillMaxWidth(), 
+            horizontalArrangement = Arrangement.Center 
         ) {
             Text(
                 text = "Menú",
@@ -309,14 +309,14 @@ fun Edicion(id: String,navController: NavController) {
     val context = LocalContext.current
     val dbHelper = DBHelper(context)
 
-    // Estado mutable para almacenar el producto
+    
     val producto = remember { mutableStateOf<Array<Any>?>(null) }
 
     LaunchedEffect(id) {
         producto.value = dbHelper.obtenerNombre(id)
     }
 
-    // Mostrar la información del producto si se ha cargado
+    
      Column {
         if (producto.value != null) {
 
