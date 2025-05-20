@@ -106,7 +106,14 @@ fun Edicion(id: String,navController: NavController, sharedViewModel: SharedView
     LaunchedEffect(id) {
             producto.value = dbHelper.obtenerNombre(id)
         if(productName.isEmpty()) productName = producto.value!![0].toString()
-        if (price.isEmpty()) price = producto.value!![1].toString()
+        //if (price.isEmpty()) price = producto.value!![1].toString()
+        if (price.isEmpty()) {
+            price = try {
+                String.format("%.2f", producto.value!![1].toString().toDouble())
+            } catch (e: Exception) {
+                "0.00"
+            }
+        }
         if (description.isEmpty()) description = producto.value!![2].toString()
 
     }
